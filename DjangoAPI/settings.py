@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'EmployeeApp.apps.EmployeeappConfig'
+
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -82,7 +83,14 @@ WSGI_APPLICATION = 'DjangoAPI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "NAME": 'mytestdb',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            # "host": "mongodb+srv://<username>:<password>@cluster0.nvdn6.mongodb.net/test",
+            'host': "localhost:27017",
+
+            "authMechanism": "SCRAM-SMA-1"
+        }
     }
 }
 
